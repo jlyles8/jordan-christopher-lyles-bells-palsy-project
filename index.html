@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jordan Christopher Lyles | Bell’s Palsy Eyelid Prosthesis Engineering Project</title>
+  <meta name="description" content="Undergraduate biomedical engineering design history project by Jordan Christopher Lyles and team: a Bell’s Palsy eyelid prosthesis proof-of-concept using bioelectrical blink detection, amplification, filtering, Arduino control, and a 3D-printed eye model." />
+  <meta name="author" content="Jordan Christopher Lyles" />
+  <meta property="og:title" content="Jordan Christopher Lyles | Bell’s Palsy Eyelid Prosthesis Project" />
+  <meta property="og:description" content="A Purdue undergraduate biomedical engineering design project focused on detecting eyelid bioelectrical signals and using them to drive a simulated blink system." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav>
+      <a href="#overview">Overview</a>
+      <a href="#design">Design</a>
+      <a href="#testing">Testing</a>
+      <a href="#gallery">Images</a>
+      <a href="#source">Source</a>
+    </nav>
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Undergraduate Biomedical Engineering Design History File</p>
+        <h1>Bell’s Palsy Eyelid Prosthesis Proof of Concept</h1>
+        <p class="lede">A Purdue undergraduate project by <strong>Jordan Christopher Lyles</strong> and teammates exploring how blink-related bioelectrical signals from a functioning eyelid could be detected, filtered, and translated into a synchronized mechanical blink.</p>
+        <div class="hero-actions">
+          <a class="button" href="assets/module-2-dhf-source.pdf">View Original DHF PDF</a>
+          <a class="button ghost" href="#gallery">View Project Images</a>
+        </div>
+      </div>
+      <figure class="card image-card">
+        <img src="assets/page-20.jpg" alt="Final design solution for the Bell’s Palsy eyelid prosthesis project" />
+        <figcaption>Final integrated prototype: circuit, Arduino, power, wiring, and mechanical eye model.</figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <main>
+    <section id="overview" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Project Overview</p>
+        <h2>Clinical need and engineering direction</h2>
+      </div>
+      <div class="content-grid">
+        <div class="panel">
+          <h3>Clinical problem</h3>
+          <p>Bell’s Palsy is an acute facial paralysis condition that can cause facial drooping, difficulty closing the eyelid, dry eye, and reduced quality of life. The team focused on partial eyelid dysfunction because loss of blinking can contribute to corneal irritation, pain, infection risk, and vision-related complications.</p>
+        </div>
+        <div class="panel">
+          <h3>Engineering goal</h3>
+          <p>The project explored a system that detects electrical activity from the functioning eyelid, cleans and amplifies the signal, and uses that signal to trigger a simulated blink in a model eye. The concept was framed as a step toward a future assistive technology for synchronized eyelid closure.</p>
+        </div>
+        <div class="panel">
+          <h3>Core design idea</h3>
+          <p>Electrodes near the eye captured a blink-related signal. An instrumentation amplifier increased signal amplitude, a notch filter reduced 60 Hz noise, and an Arduino interpreted peaks in the signal to activate a motor connected to a 3D-printed eyelid mechanism.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stats">
+      <div class="stat"><span>Jordan Christopher Lyles</span><p>Project author and undergraduate BME team member</p></div>
+      <div class="stat"><span>60 Hz</span><p>Target notch filter frequency for power-line noise attenuation</p></div>
+      <div class="stat"><span>12.06%</span><p>Average reported blink-detection percent error</p></div>
+      <div class="stat"><span>0.988</span><p>Reported ANOVA p-value comparing expected vs. actual blinks</p></div>
+    </section>
+
+    <section id="design" class="section split">
+      <div>
+        <p class="eyebrow">Design Architecture</p>
+        <h2>From eyelid signal to simulated blink</h2>
+        <p>The device workflow combined biological signal capture, analog signal conditioning, digital interpretation, and mechanical actuation. The project was not a finished medical device; it was an educational proof of concept demonstrating the signal-processing and control logic needed for an eyelid prosthesis model.</p>
+        <ol class="steps">
+          <li><strong>Signal capture:</strong> electrodes placed around the functioning eyelid measured blink-associated voltage changes.</li>
+          <li><strong>Amplification:</strong> an instrumentation amplifier increased the small biological signal so it could be detected reliably.</li>
+          <li><strong>Filtering:</strong> a notch filter was designed around 60 Hz to reduce electrical noise.</li>
+          <li><strong>Microcontroller logic:</strong> Arduino code used a threshold-based peak detection method to recognize blinks.</li>
+          <li><strong>Actuation:</strong> a motor rotated a gear-driven mock eyelid across a 3D-printed eye.</li>
+        </ol>
+      </div>
+      <figure class="card image-card">
+        <img src="assets/page-12.jpg" alt="Subcomponent flowchart showing base circuit, 3D printed models, integrated circuit, Arduino, and integrated model" />
+        <figcaption>Subcomponent flow: base circuit → 3D printed models → integrated circuit → Arduino → integrated model.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section split reverse">
+      <figure class="card image-card">
+        <img src="assets/page-10.jpg" alt="Circuit diagrams and 3D eye and eyelid model figures" />
+        <figcaption>INA/notch filter diagrams and CAD-style images of the eye and eyelid gear system.</figcaption>
+      </figure>
+      <div>
+        <p class="eyebrow">Prototype Components</p>
+        <h2>What the team built</h2>
+        <p>The prototype included an analog front end, breadboard circuit, oscilloscope verification, Arduino microcontroller, motor, and 3D-printed mechanical eye system. The team iterated through multiple circuit values, notch-filter tuning attempts, gear designs, motors, and Arduino code revisions to make the blink simulation respond to the input signal.</p>
+        <div class="tags"><span>Biomedical signals</span><span>Arduino</span><span>LTSpice</span><span>3D printing</span><span>Instrumentation amplifier</span><span>Notch filter</span></div>
+      </div>
+    </section>
+
+    <section id="testing" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Verification & Validation</p>
+        <h2>Testing the circuit, code, and model</h2>
+      </div>
+      <div class="content-grid two">
+        <div class="panel">
+          <h3>Verification plan</h3>
+          <p>The team verified design choices in LTSpice, measured component tolerances with a multimeter, tested the INA and notch filter on a breadboard, and used generated signals before moving to electrode-based blink trials.</p>
+        </div>
+        <div class="panel">
+          <h3>Human-subject prototype trials</h3>
+          <p>Group members completed blink trials while the system counted expected blinks and actual simulated blinks. Percent error was calculated for each trial, then ANOVA testing was used to assess whether results varied significantly between subjects or between expected and actual blinks.</p>
+        </div>
+      </div>
+      <figure class="wide-card">
+        <img src="assets/page-18.jpg" alt="Verification images including oscilloscope signal, percent error graph, blink comparison chart, and ANOVA tables" />
+        <figcaption>Testing results included oscilloscope verification, percent error plots, actual-vs-expected blink comparisons, and ANOVA summaries.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section split">
+      <div>
+        <p class="eyebrow">Risk Analysis</p>
+        <h2>FMEA-driven design changes</h2>
+        <p>The project included a Failure Modes and Effects Analysis covering circuit errors, short circuits, electrode placement, weak electrode adhesion, Arduino cutoff issues, and motor/gear failures. High-priority risks pushed the team toward clearer procedures, revised notch-filter values, facial electrodes, and additional checks before testing.</p>
+      </div>
+      <figure class="card image-card">
+        <img src="assets/page-13.jpg" alt="FMEA table for circuit, Arduino code, electrode placement, and motor gear system" />
+        <figcaption>FMEA table documenting severity, occurrence, detectability, risk priority, and mitigation strategies.</figcaption>
+      </figure>
+    </section>
+
+    <section id="gallery" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Image Gallery</p>
+        <h2>Project images from the Design History File</h2>
+        <p>These images are rendered from the uploaded DHF pages so the GitHub site includes the visual content, tables, diagrams, code screenshot, and prototype photos from the original undergraduate project.</p>
+      </div>
+      <div class="gallery">
+        <figure><img src="assets/page-01.jpg" alt="DHF cover page with project authors including Jordan Lyles"><figcaption>Cover and authors</figcaption></figure>
+        <figure><img src="assets/page-10.jpg" alt="Circuit and CAD model figures"><figcaption>Circuit and 3D models</figcaption></figure>
+        <figure><img src="assets/page-11.jpg" alt="Arduino code screenshot and subcomponent table"><figcaption>Arduino code and subcomponents</figcaption></figure>
+        <figure><img src="assets/page-13.jpg" alt="FMEA table"><figcaption>FMEA risk table</figcaption></figure>
+        <figure><img src="assets/page-16.jpg" alt="LTSpice simulation results"><figcaption>LTSpice verification</figcaption></figure>
+        <figure><img src="assets/page-18.jpg" alt="Testing results and ANOVA charts"><figcaption>Results and ANOVA</figcaption></figure>
+        <figure><img src="assets/page-20.jpg" alt="Final design solution"><figcaption>Final prototype</figcaption></figure>
+        <figure><img src="assets/page-24.jpg" alt="Arduino code appendix"><figcaption>Code appendix</figcaption></figure>
+      </div>
+    </section>
+
+    <section id="source" class="section source-box">
+      <p class="eyebrow">Original Document</p>
+      <h2>Design History Workbook</h2>
+      <p>This website is a public portfolio-style summary of an undergraduate biomedical engineering project. The original DHF PDF is included for transparency and documentation.</p>
+      <a class="button" href="assets/module-2-dhf-source.pdf">Open Source PDF</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Jordan Christopher Lyles. Undergraduate biomedical engineering project portfolio page.</p>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
